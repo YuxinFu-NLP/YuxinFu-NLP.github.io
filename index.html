@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Yuxin Fu | NLP Researcher</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #ffffff;
+            color: #222222;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
+            line-height: 1.65;
+        }
+
+        a {
+            color: #2457a6;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           PAGE LAYOUT
+           ========================= */
+
+        .page {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 70px 45px;
+
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 80px;
+        }
+
+
+        /* =========================
+           LEFT SIDEBAR
+           ========================= */
+
+        .sidebar {
+            position: sticky;
+            top: 60px;
+            align-self: start;
+        }
+
+        .profile-photo {
+            width: 190px;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 22px;
+            display: block;
+            margin: 0 0 18px 0;
+            border: 3px solid #f0f0f0;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .name {
+            font-size: 34px;
+            font-weight: 700;
+            letter-spacing: -0.8px;
+            margin-bottom: 8px;
+        }
+
+        .role {
+            font-size: 17px;
+            color: #666666;
+            margin-bottom: 22px;
+        }
+
+        .affiliation {
+            font-size: 15px;
+            color: #444444;
+            line-height: 1.55;
+            margin-bottom: 28px;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 35px;
+        }
+
+        .links a {
+            font-size: 15px;
+            color: #333333;
+        }
+
+        .links a:hover {
+            color: #2457a6;
+        }
+
+        .sidebar-line {
+            height: 1px;
+            background: #e5e5e5;
+            margin: 25px 0;
+        }
+
+        .sidebar-note {
+            font-size: 13px;
+            color: #888888;
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           MAIN CONTENT
+           ========================= */
+
+        main {
+            min-width: 0;
+        }
+
+        section {
+            margin-bottom: 58px;
+        }
+
+        section h2 {
+            font-size: 23px;
+            margin: 0 0 22px 0;
+            font-weight: 650;
+            letter-spacing: -0.2px;
+        }
+
+
+        /* =========================
+           ABOUT
+           ========================= */
+
+        .story {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #333333;
+        }
+
+        .story strong {
+            font-weight: 700;
+        }
+
+        .current-story > p {
+            margin: 0 0 16px;
+        }
+
+        .current-story > p:last-child {
+            margin-bottom: 0;
+        }
+
+        .research-focus {
+            border-left: 3px solid #3357b2;
+            background: #f3f6fc;
+            color: #2d416d;
+            padding: 12px 16px;
+        }
+
+        .phd-highlight {
+            color: #2457a6;
+            font-style: italic;
+        }
+
+
+        /* =========================
+           RESEARCH TIMELINE
+           ========================= */
+
+        .timeline {
+            display: grid;
+            gap: 26px;
+        }
+
+        .timeline-item {
+            border-left: 2px solid #dfe6f3;
+            padding-left: 18px;
+            margin-left: 6px;
+        }
+
+        .timeline-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .timeline-year {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #3357b2;
+        }
+
+        .timeline-title {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        .timeline-meta {
+            font-size: 14px;
+            color: #666666;
+            margin: 4px 0 10px;
+            font-style: italic;
+        }
+
+        .timeline-body {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #444444;
+        }
+
+        .timeline-body strong {
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           INTEREST TAGS
+           ========================= */
+
+        .interest-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .tag {
+            display: inline-block;
+            border: 1px solid #dfe6f3;
+            background: #f5f8ff;
+            color: #2c4b9a;
+            border-radius: 999px;
+            padding: 7px 12px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .paper-keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin: 0 0 12px 0;
+        }
+
+        .paper-keyword {
+            display: inline-block;
+            border: 1px solid #cbded6;
+            border-radius: 4px;
+            background: #f3f8f5;
+            color: #315e4d;
+            padding: 4px 9px;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+
+        /* =========================
+           PUBLICATIONS
+           ========================= */
+
+        .publication {
+            padding: 0 0 25px 0;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .publication-title {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .publication-meta {
+            font-size: 14px;
+            color: #666666;
+            margin-bottom: 10px;
+        }
+
+        .publication-description {
+            font-size: 14.5px;
+            color: #555555;
+            line-height: 1.65;
+            margin-bottom: 10px;
+        }
+
+        .publication-links a {
+            font-size: 14px;
+            margin-right: 18px;
+        }
+
+
+        /* =========================
+           CONTACT
+           ========================= */
+
+        .contact-text {
+            font-size: 15px;
+            color: #555555;
+        }
+
+
+        /* =========================
+           FOOTER
+           ========================= */
+
+        footer {
+            padding-top: 20px;
+
+            border-top: 1px solid #eeeeee;
+
+            font-size: 13px;
+            color: #999999;
+        }
+
+
+        /* =========================
+           MOBILE
+           ========================= */
+
+        @media (max-width: 800px) {
+
+            .page {
+                grid-template-columns: 1fr;
+                gap: 45px;
+                padding: 45px 25px;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .links {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="page">
+
+
+    <!-- =========================
+         LEFT COLUMN
+         ========================= -->
+
+    <aside class="sidebar">
+
+        <img
+            class="profile-photo"
+            src="personalphoto.jpeg"
+            alt="Yuxin Fu"
+        >
+
+        <div class="name">
+            Yuxin Fu
+        </div>
+
+        <div class="role" style="margin-top: 2px; margin-bottom: 8px; color: #4a4a4a;">
+            付雨欣
+        </div>
+
+        <div class="role">
+            NLP Researcher
+        </div>
+
+        <div class="affiliation">
+            Shanghai International Studies University
+            <br>
+            Computational Linguistics · NLP
+        </div>
+
+        <div class="links">
+
+            <a
+                href="https://github.com/YuxinFU-NLP"
+                target="_blank"
+                rel="noopener"
+            >
+                💻 GitHub
+            </a>
+
+            <a
+                href="https://scholar.google.com/citations?hl=zh-CN&user=jnapWl8AAAAJ&view_op=list_works&citft=1&citft=2&citft=3&email_for_op=clairjeffery1%40gmail.com&gmla=ACrTK9WpgAHMzycCTyFCQQgEi-b85a26QgLqRI5-KkdzNqi8z3Fw21rGW-hjzx1FK2pAeCMcayQz_MhGN6oRffFJroj1Uu6ysfhV7pN9koDt2uuSPYTHe5TSCHv2EC0bEy65_8P1f3xJE0YxOZ20OSa8Ib7Ol-PL2kWx-iHUSP0oolKFIKATBNzX2iHNGDpMXwk_MnXhXYvch7Xn914tabQI1flTZlm-5n7m_liML1I73yqdxKtn5xDn4GIZiLn4rw"
+                target="_blank"
+                rel="noopener"
+            >
+                🎓 Google Scholar
+            </a>
+
+            <a
+                href="https://ieeexplore.ieee.org/author/962497020071421"
+                target="_blank"
+                rel="noopener"
+            >
+                📘 IEEE Xplore
+            </a>
+
+        </div>
+
+        <div class="sidebar-line"></div>
+
+        <div class="sidebar-note">
+
+            <div>Interested in:</div>
+
+            <div class="interest-tags">
+
+                <span class="tag">
+                    NLP
+                </span>
+
+                <span class="tag">
+                    Computational Linguistics
+                </span>
+
+                <span class="tag">
+                    Bias &amp; Safety
+                </span>
+
+                <span class="tag">
+                    Language &amp; Cognition
+                </span>
+
+                <span class="tag">
+                    Large Language Models
+                </span>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================
+         RIGHT COLUMN
+         ========================= -->
+
+    <main>
+
+
+        <!-- =========================
+             ABOUT
+             ========================= -->
+
+        <section>
+
+            <h2>
+                About
+            </h2>
+
+            <div class="story">
+
+                <p>
+                    I studied at
+                    <strong>Shanghai International Studies University</strong>
+                    from
+                    <strong>2022 to 2026</strong>,
+                    majoring in
+                    <strong>Data Science and Big Data Technology</strong>.
+                </p>
+
+                <p>
+                    I independently initiated research since my freshman year,
+                    and I have now completed
+                    <strong>two full first-author research projects</strong>,
+                    which were respectively published in
+                    <strong>EMNLP 2026 Findings</strong>
+                    and
+                    <strong>IALP 2024 (IEEE / EI)</strong>.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             RESEARCH DIRECTIONS
+             ========================= -->
+
+        <section>
+
+            <h2>
+                Research Directions
+            </h2>
+
+            <div class="story">
+
+                <p class="research-focus">
+                    My core research interests lie in
+                    <strong>NLP, bias, and safety</strong>.
+                    From a linguistic perspective, I am particularly drawn to
+                    <strong>complex pragmatics, discourse analysis, and Systemic Functional Linguistics</strong>.
+                    I hope to use these perspectives to make model behavior
+                    more interpretable, in dialogue with mathematical and
+                    computational methods, while engaging critically with
+                    <strong>AI ethics</strong>.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CURRENT
+             ========================= -->
+
+        <section>
+
+            <h2>
+                Current
+            </h2>
+
+            <div class="story current-story">
+
+                <p>
+                    After graduating from university,
+                    I have already developed
+                    <strong>new research ideas</strong>
+                    and directions that I would like to pursue further.
+                </p>
+
+                <p>
+                    At this stage, I am actively seeking
+                    <strong>research collaborators</strong>,
+                    as well as support in
+                    <strong>computation, resources, and related expertise</strong>,
+                    to help advance these projects and turn them into impactful work.
+                    <span class="phd-highlight">
+                        I am also open to future
+                        <strong>2027 Fall PhD</strong>
+                        opportunities that align with these directions.
+                    </span>
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             RESEARCH TIMELINE
+             ========================= -->
+
+        <section>
+
+            <h2>
+                Research Timeline
+            </h2>
+
+            <div class="timeline">
+
+
+                <!-- MAAM -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-header">
+
+                        <div class="timeline-year">
+                            2024.11 · Junior → 2026.08 · Senior
+                        </div>
+
+                    </div>
+
+                    <div class="timeline-title">
+                        MAAM: Anchor-Preserving Compression and Contextual Calibration for Chinese Discriminatory Language Detection
+                    </div>
+
+                    <div class="timeline-meta">
+                        First Author · EMNLP 2026 Findings
+                    </div>
+
+                    <div class="timeline-links" style="margin-top: 8px; margin-bottom: 10px;">
+                        <a href="https://arxiv.org/pdf/2606.09114" target="_blank" rel="noopener" style="font-size: 14px;">
+                            View paper ↗
+                        </a>
+                        <a href="https://github.com/YuxinFu-NLP/MAAM-ChLGBT" target="_blank" rel="noopener" style="font-size: 14px; margin-left: 14px;">
+                            GitHub repository ↗
+                        </a>
+                    </div>
+
+                    <div class="paper-keywords">
+                        <span class="paper-keyword">Chinese Discriminatory Language</span>
+                        <span class="paper-keyword">Implicit Bias</span>
+                        <span class="paper-keyword">Context-Dependent Harm</span>
+                        <span class="paper-keyword">Anchor Preservation</span>
+                        <span class="paper-keyword">Contextual Priors</span>
+                        <span class="paper-keyword">ChLGBT Dataset</span>
+                        <span class="paper-keyword">Bias Calibration</span>
+                        <span class="paper-keyword">Interpretability</span>
+                    </div>
+
+                    <div class="timeline-body">
+
+                        At the beginning of my junior year,
+                        I independently identified the research problem
+                        and developed the overall methodological framework.
+                        I proposed <strong>MAAM</strong> to address
+                        implicit bias and context dependence in Chinese
+                        discriminatory language, and constructed the
+                        <strong>ChLGBT</strong> dataset containing
+                        <strong>8,120 manually annotated samples</strong>.
+
+                        I independently handled research design,
+                        theoretical derivation, dataset construction
+                        and annotation schema development,
+                        experimental code, analysis, and paper writing,
+                        and I also handled the ARR review response
+                        and iterative revisions during the revision process.
+
+                    </div>
+
+                </div>
+
+
+                <!-- FFN -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-header">
+
+                        <div class="timeline-year">
+                            2023 · Freshman → Sophomore
+                        </div>
+
+                    </div>
+
+                    <div class="timeline-title">
+                        FFN: A Fine-grained Chinese-English Financial Domain Parallel Corpus
+                    </div>
+
+                    <div class="timeline-meta">
+                        First Author · IALP 2024 · IEEE / EI
+                    </div>
+
+                    <div class="timeline-links" style="margin-top: 8px; margin-bottom: 10px;">
+                        <a href="https://arxiv.org/pdf/2406.18856" target="_blank" rel="noopener" style="font-size: 14px;">
+                            View paper ↗
+                        </a>
+                        <a href="https://github.com/shijing001/FFN_corpus" target="_blank" rel="noopener" style="font-size: 14px; margin-left: 14px;">
+                            GitHub repository ↗
+                        </a>
+                    </div>
+
+                    <div class="paper-keywords">
+                        <span class="paper-keyword">Financial NLP</span>
+                        <span class="paper-keyword">Parallel Corpus</span>
+                        <span class="paper-keyword">Machine Translation</span>
+                        <span class="paper-keyword">Domain Adaptation</span>
+                    </div>
+
+                    <div class="timeline-body">
+
+                        In my second semester,
+                        I proactively contacted my supervisor
+                        and began research focused on multilingual
+                        parallel corpus construction and machine
+                        translation evaluation in the financial domain.
+
+                        As the first author,
+                        I independently completed the main data construction,
+                        manual translation proofreading and alignment,
+                        experimental design,
+                        evaluation code development,
+                        and OpenNMT model training.
+
+                        I also independently presented my work
+                        at an offline conference during the summer
+                        after my sophomore year.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTACT
+             ========================= -->
+
+        <section>
+
+            <h2>
+                Contact
+            </h2>
+
+            <p class="contact-text">
+                For research collaboration or academic inquiries,
+                please feel free to reach out by email.
+            </p>
+
+            <p>
+                <a href="mailto:yuxinfuNLP@outlook.com">
+                    yuxinfuNLP@outlook.com
+                </a>
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             FOOTER
+             ========================= -->
+
+        <footer>
+
+            © 2026 Yuxin Fu
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+</body>
+
+</html>
